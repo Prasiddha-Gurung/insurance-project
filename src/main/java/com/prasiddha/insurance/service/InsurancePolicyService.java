@@ -8,4 +8,8 @@ public interface InsurancePolicyService {
     InsurancePolicyDto createInsurancePolicy(InsurancePolicyDto insurancePolicyDto);
 
     List<InsurancePolicyDto> getAllInsurancePolicies();
+
+    InsurancePolicyDto getInsurancePolicyById(Long policyId);
+
+    InsurancePolicyDto updateInsurancePolicy(Long policyId, InsurancePolicyDto insurancePolicyDto);
 }

@@ -32,4 +32,19 @@ public class InsurancePolicyController {
         return  new ResponseEntity<>(allInsurancePolicies, HttpStatus.CREATED);
     }
 
+    @GetMapping("/{policyId}")
+    public ResponseEntity<InsurancePolicyDto> getAllInsurancePolicies(@PathVariable Long policyId)
+    {
+        InsurancePolicyDto insurancePolicy = insurancePolicyService.getInsurancePolicyById(policyId);
+        return  new ResponseEntity<>(insurancePolicy, HttpStatus.CREATED);
+    }
+
+    @PatchMapping("/{policyId}")
+    public ResponseEntity<InsurancePolicyDto> updateInsurancePolicy(@PathVariable Long policyId, @RequestBody InsurancePolicyDto insurancePolicyDto)
+    {
+        InsurancePolicyDto insurancePolicy = insurancePolicyService.updateInsurancePolicy(policyId, insurancePolicyDto);
+        return  new ResponseEntity<>(insurancePolicy, HttpStatus.CREATED);
+    }
+
+
 }

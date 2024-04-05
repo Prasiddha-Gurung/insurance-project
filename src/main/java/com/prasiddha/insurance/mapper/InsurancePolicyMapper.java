@@ -33,8 +33,8 @@ public class InsurancePolicyMapper {
         insurancePolicy.setPolicyStatus(dto.getPolicyStatus());
         insurancePolicy.setCoverageStartDate(dto.getCoverageStartDate());
         insurancePolicy.setCoverageEndDate(dto.getCoverageEndDate());
-        insurancePolicy.setCreatedAt(LocalDateTime.now()); // Handle with care, usually not set manually
-        insurancePolicy.setUpdatedAt(LocalDateTime.now()); // Handle with care, usually managed by JPA
+        insurancePolicy.setCreatedAt(LocalDateTime.now());
+        insurancePolicy.setUpdatedAt(LocalDateTime.now()); 
         return insurancePolicy;
     }
 }
