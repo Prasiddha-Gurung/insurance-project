@@ -1,5 +1,6 @@
-package com.prasiddha.insurance.entity;
+package com.prasiddha.insurance.dto;
 
+import com.prasiddha.insurance.entity.PolicyStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,34 +12,15 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "insurance_policies")
-public class InsurancePolicy {
+@AllArgsConstructor
+public class InsurancePolicyDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long policyId;
-
-    @Column(nullable = false, unique = true)
     private String policyName;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private PolicyStatus policyStatus;
-
-    @Column(nullable = false)
     private LocalDate coverageStartDate;
-
-    @Column(nullable = false)
     private LocalDate coverageEndDate;
-
-    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
-
-    @Column(nullable = false)
     private LocalDateTime updatedAt;
-
 }
-
