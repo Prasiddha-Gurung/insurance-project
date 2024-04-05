@@ -7,7 +7,6 @@ import com.prasiddha.insurance.mapper.InsurancePolicyMapper;
 import com.prasiddha.insurance.repository.InsurancePolicyRepository;
 import com.prasiddha.insurance.service.InsurancePolicyService;
 import lombok.AllArgsConstructor;
-import org.springframework.expression.ExpressionException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -38,10 +37,14 @@ public class InsurancePolicyServiceImpl implements InsurancePolicyService {
     @Override
     public InsurancePolicyDto getInsurancePolicyById(Long policyId)
     {
-        InsurancePolicy insurancePolicy = insurancePolicyRepository.findById(policyId)
-                .orElseThrow(() -> new ResourceNotFoundException("Insurance Policy not found for this id :: " + policyId));
-        return InsurancePolicyMapper.toDto(insurancePolicy);
-
+        try {
+            InsurancePolicy insurancePolicy = insurancePolicyRepository.findById(policyId)
+                    .orElseThrow(() -> new ResourceNotFoundException("Insurance Policy not found for this id :: " + policyId));
+            return InsurancePolicyMapper.toDto(insurancePolicy);
+        }
+        catch (Exception e){
+            throw e;
+        }
     }
 
     @Override
