@@ -1,11 +1,13 @@
 package com.prasiddha.insurance.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -22,9 +24,9 @@ public class InsurancePolicy {
     @Column(nullable = false, unique = true)
     private String policyName;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private PolicyStatus policyStatus; // ACTIVE, INACTIVE
+//    @Enumerated(EnumType.STRING)
+//    @Column(nullable = false)
+//    private String policyStatus;
 
     @Column(nullable = false)
     private LocalDate beginningOfCoverage;
@@ -38,6 +40,5 @@ public class InsurancePolicy {
     @Column(nullable = false)
     private LocalDateTime dateOfLastUpdate;
 
-    // Getters and Setters
 }
 
