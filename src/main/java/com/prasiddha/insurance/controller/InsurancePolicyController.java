@@ -22,13 +22,11 @@ public class InsurancePolicyController {
     @PostMapping
     public ResponseEntity<Object> createInsurancePolicy(@RequestBody InsurancePolicyDto insurancePolicyDto)
     {
-//        InsurancePolicyDto savedInsurancePolicy = insurancePolicyService.createInsurancePolicy(insurancePolicyDto);
-//        return  new ResponseEntity<>(savedInsurancePolicy, HttpStatus.CREATED);
         try {
             InsurancePolicyDto savedInsurancePolicy = insurancePolicyService.createInsurancePolicy(insurancePolicyDto);
             return new ResponseEntity<>(savedInsurancePolicy, HttpStatus.CREATED);
         } catch (Exception e) {
-            // Log the error and return a generic error response or a custom error object if needed
+
             return new ResponseEntity<>("An error occurred while creating the insurance policy.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
