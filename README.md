@@ -5,3 +5,5 @@ JAVA version = 21
 Please add .env file
 
 You can the db details in .env.example file or the same given in dockerfile or add your own db details.
+
+Swagger path http://localhost:8080/swagger-ui.html
